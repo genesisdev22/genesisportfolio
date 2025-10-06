@@ -14,8 +14,8 @@ const jsonLd = {
   "jobTitle": "Desarrolladora Fullstack",
   "url": "https://genesispatino.dev",
   "sameAs": [
-    "https://github.com/genesis-patino", // Reemplaza con tu GitHub real
-    "https://linkedin.com/in/genesis-patino" // Reemplaza con tu LinkedIn real
+    "https://github.com/genesisdev22?tab=repositories",
+    "https://www.linkedin.com/in/genesis-pati%C3%B1o-urquijo-b68115272/"
   ],
   "knowsAbout": ["React", "React Native", "Node.js", "NestJS", "JavaScript", "TypeScript", "Fullstack Development"],
   "description": "Desarrolladora Fullstack especializada en React, React Native, Node.js y NestJS"
@@ -31,7 +31,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Genesis Patiño Urquijo - Desarrolladora Fullstack",
     description: "Portafolio profesional de Genesis Patiño Urquijo, Desarrolladora Fullstack especializada en React, React Native, Node.js y NestJS",
-    url: "https://genesispatino.dev", // Reemplaza con tu dominio real
+    url: "https://genesispatino.dev",
     siteName: "Portfolio de Genesis Patiño Urquijo",
     images: [
       {
@@ -51,7 +51,7 @@ export const metadata: Metadata = {
     images: ["/placeholder.jpg"],
   },
   alternates: {
-    canonical: "https://genesispatino.dev", // Reemplaza con tu dominio real
+    canonical: "https://genesispatino.dev",
   },
   robots: {
     index: true,
