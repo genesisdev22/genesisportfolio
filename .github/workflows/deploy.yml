@@ -1,0 +1,82 @@
+name: deploy
+on:
+  workflow_run:
+    workflows: [ "docker-publish" ]
+    types: [ completed ]
+    branches: [ main ]
+
+permissions:
+  contents: read
+
+jobs:
+  deploy:
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: SSH into droplet and deploy
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USER }}
+          key: ${{ secrets.SSH_KEY }}
+          port: ${{ secrets.SSH_PORT || 22 }}
+          script_stop: true
+          envs: GHCR_USER,GHCR_PAT,SERVER_PATH
+          script: |
+            set -euo pipefail
+
+            # 1) Docker & Compose
+            if ! command -v docker >/dev/null 2>&1; then
+              curl -fsSL https://get.docker.com | sh
+            fi
+            if docker compose version >/dev/null 2>&1; then
+              COMPOSE="docker compose"
+            else
+              sudo curl -L "https://github.com/docker/compose/releases/download/v2.29.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+              sudo chmod +x /usr/local/bin/docker-compose
+              COMPOSE="docker-compose"
+            fi
+
+            # 2) Red externa compartida para Caddy + apps
+            docker network inspect infra_infra_network >/dev/null 2>&1 || docker network create infra_infra_network
+
+            # 3) Carpeta de deploy en el servidor
+            SERVER_PATH="${{ secrets.SERVER_PATH }}"
+            mkdir -p "$SERVER_PATH/infra"
+            cd "$SERVER_PATH"
+
+            # 4) Copiar archivos desde el repo actual (vía git) SOLO para infra
+            #    Si prefieres scp de los archivos, puedes eliminar este bloque y subirlos con otra acción.
+            rm -rf temp_repo
+            git clone --depth=1 https://github.com/${{ github.repository }}.git temp_repo
+            cp -f temp_repo/infra/docker-compose.caddy.yml infra/docker-compose.caddy.yml
+            cp -f temp_repo/infra/Caddyfile infra/Caddyfile
+            cp -f temp_repo/docker-compose.prod.yml docker-compose.yml || true
+            rm -rf temp_repo
+
+            # 5) Caddy (levantar/actualizar)
+            cd "$SERVER_PATH/infra"
+
+            # Si Caddy aún no está arriba, lo levanta; si ya está, recrea con cambios
+            $COMPOSE -f docker-compose.caddy.yml up -d
+
+            # 6) Volver a la raíz del deploy
+            cd "$SERVER_PATH"
+
+            # 7) .env de la app (crea si no existe)
+            if [ ! -f .env ]; then
+              cat > .env << 'EOF'
+              NODE_ENV=production
+              EOF
+            fi
+
+            # 8) Login GHCR si la imagen es privada (usa secrets opcionales)
+            if [ -n "${GHCR_USER:-}" ] && [ -n "${GHCR_PAT:-}" ]; then
+              echo "$GHCR_PAT" | docker login ghcr.io -u "$GHCR_USER" --password-stdin
+            fi
+
+            # 9) Pull & Up de la app
+            $COMPOSE pull || true
+            $COMPOSE up -d --remove-orphans
+
+            echo "✅ Deploy completado en $SERVER_PATH"

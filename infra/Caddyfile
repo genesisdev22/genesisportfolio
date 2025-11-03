@@ -1,0 +1,32 @@
+{
+  email admin@genesispatino.dev
+  servers {
+    protocols h1 h2 h3
+  }
+}
+
+(genesis_common) {
+  encode zstd gzip
+  header {
+    Strict-Transport-Security "max-age=31536000; includeSubDomains; preload"
+    X-Content-Type-Options "nosniff"
+    X-Frame-Options "DENY"
+    Referrer-Policy "strict-origin-when-cross-origin"
+  }
+}
+
+# redir www -> apex
+www.genesispatino.dev {
+  import genesis_common
+  redir https://genesispatino.dev{uri}
+}
+
+genesispatino.dev {
+  import genesis_common
+  @health {
+    path /health
+  }
+  respond @health 200
+
+  reverse_proxy app:3000
+}

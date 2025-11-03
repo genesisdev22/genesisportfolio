@@ -1,0 +1,15 @@
+services:
+  app:
+    image: ghcr.io/genesisdev22/genesisportfolio:latest
+    container_name: app
+    env_file: .env
+    restart: unless-stopped
+    networks:
+      - infra_infra_network
+    # Para pruebas locales directas, podrías exponer (no necesario con Caddy):
+    # ports:
+    #   - "3000:3000"
+
+networks:
+  infra_infra_network:
+    external: true

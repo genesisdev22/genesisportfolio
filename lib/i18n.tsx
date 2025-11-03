@@ -100,7 +100,7 @@ const translations: Record<Language, Translations> = {
       jobTitle: "Desarrolladora Fullstack",
       company: "FALP",
       location: "Santiago, Chile",
-      period: "Oct 2024 - Mayo 2025",
+      period: "Oct 2024 - Oct 2025",
       description: [
         "Desarrollo y mantenimiento de aplicaciones web y móviles utilizando React, React Native, Node.js y NestJS",
         "Participación en equipos multidisciplinarios para implementar nuevas funcionalidades, correcciones de bugs y mejoras de rendimiento",
@@ -108,10 +108,10 @@ const translations: Record<Language, Translations> = {
         "Colaboración activa en procesos de planificación, pruebas y despliegue continuo (CI/CD) en entornos productivos",
       ],
       technologies: ["React", "React Native", "Flutter", "Node.js", "NestJS", "REST APIs", "CI/CD"],
-      degree: "Tecnólogo",
+      degree: "Tecnólogo en Análisis y Desarrollo de Software",
       institution: "SENA",
       educationLocation: "Cartagena, Colombia",
-      educationPeriod: "Nov 2021 - Sep 2025",
+      educationPeriod: "Ago 2022 - Oct 2025",
     },
     skills: {
       title: "Habilidades",
@@ -200,7 +200,7 @@ const translations: Record<Language, Translations> = {
       jobTitle: "Fullstack Developer",
       company: "FALP",
       location: "Santiago, Chile",
-      period: "Oct 2024 - May 2025",
+      period: "Oct 2024 - Oct 2025",
       description: [
         "Development and maintenance of web and mobile applications using React, React Native, Node.js, and NestJS",
         "Participation in multidisciplinary teams to implement new features, bug fixes, and performance improvements",
@@ -208,10 +208,10 @@ const translations: Record<Language, Translations> = {
         "Active collaboration in planning, testing, and continuous deployment (CI/CD) processes in production environments",
       ],
       technologies: ["React", "React Native", "Flutter", "Node.js", "NestJS", "REST APIs", "CI/CD"],
-      degree: "Technologist",
+      degree: "Technologist in Analysis and Development of Software",
       institution: "SENA",
       educationLocation: "Cartagena, Colombia",
-      educationPeriod: "Nov 2021 - Sep 2025",
+      educationPeriod: "Ago 2022 - Oct 2025",
     },
     skills: {
       title: "Skills",
