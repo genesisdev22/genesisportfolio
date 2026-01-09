@@ -100,7 +100,7 @@ const translations: Record<Language, Translations> = {
       jobTitle: "Desarrolladora Fullstack",
       company: "FALP",
       location: "Santiago, Chile",
-      period: "Nov 2023 - Nov 2025",
+      period: "Oct 2024 - Oct 2025",
       description: [
         "Desarrollo y mantenimiento de aplicaciones web y móviles utilizando React, React Native, Node.js y NestJS",
         "Participación en equipos multidisciplinarios para implementar nuevas funcionalidades, correcciones de bugs y mejoras de rendimiento",
@@ -200,7 +200,7 @@ const translations: Record<Language, Translations> = {
       jobTitle: "Fullstack Developer",
       company: "FALP",
       location: "Santiago, Chile",
-      period: "Nov 2023 - Nov 2025",
+      period: "Oct 2024 - Oct 2025",
       description: [
         "Development and maintenance of web and mobile applications using React, React Native, Node.js, and NestJS",
         "Participation in multidisciplinary teams to implement new features, bug fixes, and performance improvements",
