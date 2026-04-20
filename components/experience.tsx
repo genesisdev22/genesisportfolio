@@ -20,48 +20,50 @@ export function Experience() {
             <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-6 sm:mb-8">{t.experience.heading}</h3>
 
             <div className="space-y-4 sm:space-y-6">
-              <Card className="border-2 hover:border-primary/50 transition-colors">
-                <CardHeader>
-                  <div className="flex flex-col gap-3 sm:gap-4">
-                    <div className="space-y-2">
-                      <CardTitle className="text-xl sm:text-2xl">{t.experience.jobTitle}</CardTitle>
-                      <CardDescription className="text-sm sm:text-base font-medium text-foreground">
-                        {t.experience.company}
-                      </CardDescription>
-                    </div>
-                    <div className="flex flex-col gap-2 text-xs sm:text-sm text-muted-foreground">
-                      <div className="flex items-center gap-2">
-                        <Calendar className="h-3.5 w-3.5 sm:h-4 sm:w-4 flex-shrink-0" />
-                        {t.experience.period}
+              {t.experience.jobs.map((job, index) => (
+                <Card key={index} className="border-2 hover:border-primary/50 transition-colors">
+                  <CardHeader>
+                    <div className="flex flex-col gap-3 sm:gap-4">
+                      <div className="space-y-2">
+                        <CardTitle className="text-xl sm:text-2xl">{job.title}</CardTitle>
+                        <CardDescription className="text-sm sm:text-base font-medium text-foreground">
+                          {job.company}
+                        </CardDescription>
                       </div>
-                      <div className="flex items-center gap-2">
-                        <MapPin className="h-3.5 w-3.5 sm:h-4 sm:w-4 flex-shrink-0" />
-                        {t.experience.location}
+                      <div className="flex flex-col gap-2 text-xs sm:text-sm text-muted-foreground">
+                        <div className="flex items-center gap-2">
+                          <Calendar className="h-3.5 w-3.5 sm:h-4 sm:w-4 flex-shrink-0" />
+                          {job.period}
+                        </div>
+                        <div className="flex items-center gap-2">
+                          <MapPin className="h-3.5 w-3.5 sm:h-4 sm:w-4 flex-shrink-0" />
+                          {job.location}
+                        </div>
                       </div>
                     </div>
-                  </div>
-                </CardHeader>
-                <CardContent className="space-y-4 sm:space-y-6">
-                  <ul className="space-y-2 sm:space-y-3">
-                    {t.experience.description.map((item, i) => (
-                      <li
-                        key={i}
-                        className="flex gap-2 sm:gap-3 text-sm sm:text-base text-muted-foreground leading-relaxed"
-                      >
-                        <span className="text-primary mt-1">•</span>
-                        <span>{item}</span>
-                      </li>
-                    ))}
-                  </ul>
-                  <div className="flex flex-wrap gap-2">
-                    {t.experience.technologies.map((tech) => (
-                      <Badge key={tech} variant="secondary" className="text-xs sm:text-sm">
-                        {tech}
-                      </Badge>
-                    ))}
-                  </div>
-                </CardContent>
-              </Card>
+                  </CardHeader>
+                  <CardContent className="space-y-4 sm:space-y-6">
+                    <ul className="space-y-2 sm:space-y-3">
+                      {job.description.map((item, i) => (
+                        <li
+                          key={i}
+                          className="flex gap-2 sm:gap-3 text-sm sm:text-base text-muted-foreground leading-relaxed"
+                        >
+                          <span className="text-primary mt-1">•</span>
+                          <span>{item}</span>
+                        </li>
+                      ))}
+                    </ul>
+                    <div className="flex flex-wrap gap-2">
+                      {job.technologies.map((tech) => (
+                        <Badge key={tech} variant="secondary" className="text-xs sm:text-sm">
+                          {tech}
+                        </Badge>
+                      ))}
+                    </div>
+                  </CardContent>
+                </Card>
+              ))}
             </div>
           </div>
 

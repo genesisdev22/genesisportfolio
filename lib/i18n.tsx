@@ -32,12 +32,14 @@ interface Translations {
     heading: string
     education: string
     educationHeading: string
-    jobTitle: string
-    company: string
-    location: string
-    period: string
-    description: string[]
-    technologies: string[]
+    jobs: Array<{
+      title: string
+      company: string
+      location: string
+      period: string
+      description: string[]
+      technologies: string[]
+    }>
     degree: string
     institution: string
     educationLocation: string
@@ -86,32 +88,53 @@ const translations: Record<Language, Translations> = {
       title: "Sobre mí",
       heading: "Desarrolladora apasionada por crear soluciones que generan valor real",
       paragraph1:
-        "Soy una Desarrolladora Fullstack con enfoque en aplicaciones web y móviles, con un año de experiencia en el desarrollo de soluciones tecnológicas utilizando React, React Native, Node.js y NestJS.",
+        "Desarrolladora de software con más de 3 años de experiencia en desarrollo frontend y backend utilizando JavaScript y tecnologías modernas como React, Node.js y Flutter.",
       paragraph2:
-        "Me destaco por mi capacidad de trabajo en equipo, pensamiento crítico y adaptabilidad a entornos ágiles. Apasionada por el aprendizaje continuo y la creación de productos que generan valor real a los usuarios.",
+        "Experiencia en despliegue y automatización en entornos AWS, contenedores Docker y CI/CD. Con conocimientos en Python para automatización y scripting.",
       paragraph3:
-        "Actualmente, trabajo desarrollando y manteniendo aplicaciones que impactan positivamente en la vida de las personas, siempre buscando implementar las mejores prácticas y tecnologías más actuales del mercado.",
+        "Enfocada en soluciones escalables y buenas prácticas de arquitectura, y en desarrollar productos que mejoren la vida de las personas.",
     },
     experience: {
       title: "Experiencia",
       heading: "Trayectoria profesional",
       education: "Educación",
       educationHeading: "Formación académica",
-      jobTitle: "Desarrolladora Fullstack",
-      company: "FALP",
-      location: "Santiago, Chile",
-      period: "Oct 2024 - Oct 2025",
-      description: [
-        "Desarrollo y mantenimiento de aplicaciones web y móviles utilizando React, React Native, Node.js y NestJS",
-        "Participación en equipos multidisciplinarios para implementar nuevas funcionalidades, correcciones de bugs y mejoras de rendimiento",
-        "Consumo e integración de APIs REST, garantizando una comunicación eficiente entre el frontend y el backend",
-        "Colaboración activa en procesos de planificación, pruebas y despliegue continuo (CI/CD) en entornos productivos",
+      jobs: [
+        {
+          title: "DevOps Engineer",
+          company: "Quo",
+          location: "Mexico",
+          period: "Ene 2026 - Actualmente",
+          description: [
+            "Implementación y mantenimiento de pipelines CI/CD.",
+            "Contenerización de aplicaciones usando Docker.",
+            "Gestión de despliegues en entornos cloud.",
+            "Automatización de procesos internos con scripts.",
+            "Soporte en infraestructura basada en AWS.",
+            "Monitoreo y optimización de ambientes productivos.",
+          ],
+          technologies: ["Docker", "AWS", "CI/CD", "Scripts", "Python"],
+        },
+        {
+          title: "Software developer",
+          company: "Acercarse",
+          location: "Santiago, Chile",
+          period: "Ene 2024 - Dic 2025",
+          description: [
+            "Desarrollo de módulos web con React y JavaScript.",
+            "Desarrollo de aplicaciones móviles con Flutter.",
+            "Integración y consumo de APIs REST con Node.js y NestJS.",
+            "Implementación de lógica backend utilizando JavaScript.",
+            "Optimización de rendimiento y solución de bugs en producción.",
+            "Trabajo bajo metodología Scrum y revisiones de Clean Architecture.",
+          ],
+          technologies: ["React", "JavaScript", "Flutter", "Node.js", "NestJS", "Scrum", "SOLID"],
+        },
       ],
-      technologies: ["React", "React Native", "Flutter", "Node.js", "NestJS", "REST APIs", "CI/CD"],
-      degree: "Tecnólogo en Análisis y Desarrollo de Software",
+      degree: "Tecnóloga en Análisis y Desarrollo de Software",
       institution: "SENA",
       educationLocation: "Cartagena, Colombia",
-      educationPeriod: "Ago 2022 - Oct 2025",
+      educationPeriod: "Ago 2023 - Oct 2025",
     },
     skills: {
       title: "Habilidades",
@@ -120,16 +143,14 @@ const translations: Record<Language, Translations> = {
       soft: "Habilidades Blandas",
       languages: "Idiomas",
       technicalSkills: [
-        { name: "React", level: "Intermedio" },
-        { name: "React Native", level: "Intermedio" },
-        { name: "Flutter", level: "Intermedio" },
-        { name: "Node.js", level: "Intermedio" },
-        { name: "NestJS", level: "Intermedio" },
-        { name: "TypeScript", level: "Intermedio" },
-        { name: "Dart", level: "Intermedio" },
-        { name: "REST APIs", level: "Intermedio" },
-        { name: "Git", level: "Intermedio" },
-        { name: "CI/CD", level: "Básico" },
+        { name: "React / React Native", level: "Avanzado" },
+        { name: "Node.js / NestJS / Express", level: "Avanzado" },
+        { name: "Flutter / Dart", level: "Intermedio" },
+        { name: "TypeScript / JavaScript", level: "Avanzado" },
+        { name: "PostgreSQL / TypeORM", level: "Intermedio" },
+        { name: "Docker / AWS / CI/CD", level: "Intermedio" },
+        { name: "TailwindCSS", level: "Avanzado" },
+        { name: "Git / Scrum / SOLID", level: "Avanzado" },
       ],
       softSkills: [
         {
@@ -186,32 +207,53 @@ const translations: Record<Language, Translations> = {
       title: "About me",
       heading: "Developer passionate about creating solutions that generate real value",
       paragraph1:
-        "I am a Fullstack Developer focused on web and mobile applications, with one year of experience developing technological solutions using React, React Native, Node.js, and NestJS.",
+        "Software developer with over 3 years of experience in frontend and backend development using JavaScript and modern technologies such as React, Node.js, and Flutter.",
       paragraph2:
-        "I stand out for my teamwork skills, critical thinking, and adaptability to agile environments. Passionate about continuous learning and creating products that generate real value for users.",
+        "Experience in deployment and automation in AWS environments, Docker containers, and CI/CD. Knowledgeable in Python for automation and scripting.",
       paragraph3:
-        "Currently, I work developing and maintaining applications that positively impact people's lives, always seeking to implement best practices and the most current market technologies.",
+        "Focused on scalable solutions and good architectural practices, and on developing products that positively impact people's lives.",
     },
     experience: {
       title: "Experience",
       heading: "Professional journey",
       education: "Education",
       educationHeading: "Academic background",
-      jobTitle: "Fullstack Developer",
-      company: "FALP",
-      location: "Santiago, Chile",
-      period: "Oct 2024 - Oct 2025",
-      description: [
-        "Development and maintenance of web and mobile applications using React, React Native, Node.js, and NestJS",
-        "Participation in multidisciplinary teams to implement new features, bug fixes, and performance improvements",
-        "Consumption and integration of REST APIs, ensuring efficient communication between frontend and backend",
-        "Active collaboration in planning, testing, and continuous deployment (CI/CD) processes in production environments",
+      jobs: [
+        {
+          title: "DevOps Engineer",
+          company: "Quo",
+          location: "Mexico",
+          period: "Jan 2026 - Present",
+          description: [
+            "Implementation and maintenance of CI/CD pipelines.",
+            "Containerization of applications using Docker.",
+            "Deployment management in cloud environments.",
+            "Automation of internal processes with scripts.",
+            "Support in AWS-based infrastructure.",
+            "Monitoring and optimization of production environments.",
+          ],
+          technologies: ["Docker", "AWS", "CI/CD", "Scripts", "Python"],
+        },
+        {
+          title: "Software Developer",
+          company: "Acercarse",
+          location: "Santiago, Chile",
+          period: "Jan 2024 - Dec 2025",
+          description: [
+            "Development of web modules with React and JavaScript.",
+            "Development of mobile applications with Flutter.",
+            "Integration and consumption of REST APIs with Node.js and NestJS.",
+            "Implementation of backend logic using JavaScript.",
+            "Performance optimization and bug fixing in production.",
+            "Work under Scrum methodology and Clean Architecture reviews.",
+          ],
+          technologies: ["React", "JavaScript", "Flutter", "Node.js", "NestJS", "Scrum", "SOLID"],
+        },
       ],
-      technologies: ["React", "React Native", "Flutter", "Node.js", "NestJS", "REST APIs", "CI/CD"],
-      degree: "Technologist in Analysis and Development of Software",
+      degree: "Technologist in Analysis and Software Development",
       institution: "SENA",
       educationLocation: "Cartagena, Colombia",
-      educationPeriod: "Ago 2022 - Oct 2025",
+      educationPeriod: "Aug 2023 - Oct 2025",
     },
     skills: {
       title: "Skills",
@@ -220,16 +262,14 @@ const translations: Record<Language, Translations> = {
       soft: "Soft Skills",
       languages: "Languages",
       technicalSkills: [
-        { name: "React", level: "Intermediate" },
-        { name: "React Native", level: "Intermediate" },
-        { name: "Flutter", level: "Intermediate" },
-        { name: "Node.js", level: "Intermediate" },
-        { name: "NestJS", level: "Intermediate" },
-        { name: "TypeScript", level: "Intermediate" },
-        { name: "Dart", level: "Intermediate" },
-        { name: "REST APIs", level: "Intermediate" },
-        { name: "Git", level: "Intermediate" },
-        { name: "CI/CD", level: "Basic" },
+        { name: "React / React Native", level: "Advanced" },
+        { name: "Node.js / NestJS / Express", level: "Advanced" },
+        { name: "Flutter / Dart", level: "Intermediate" },
+        { name: "TypeScript / JavaScript", level: "Advanced" },
+        { name: "PostgreSQL / TypeORM", level: "Intermediate" },
+        { name: "Docker / AWS / CI/CD", level: "Intermediate" },
+        { name: "TailwindCSS", level: "Advanced" },
+        { name: "Git / Scrum / SOLID", level: "Advanced" },
       ],
       softSkills: [
         {

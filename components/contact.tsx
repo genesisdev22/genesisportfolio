@@ -2,7 +2,7 @@
 
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { Mail, Phone, MapPin, Linkedin, Github } from "lucide-react"
+import { Mail, Phone, MapPin, Linkedin, Github, Globe } from "lucide-react"
 import { useLanguage } from "@/lib/i18n"
 
 export function Contact() {
@@ -27,6 +27,12 @@ export function Contact() {
       value: "Cartagena, Colombia",
       href: null,
     },
+    {
+      icon: Globe,
+      label: "Website",
+      value: "genesispatino.dev",
+      href: "https://genesispatino.dev",
+    },
   ]
 
   const handleWhatsAppClick = () => {
@@ -47,7 +53,7 @@ export function Contact() {
             <p className="text-base sm:text-lg text-muted-foreground max-w-2xl mx-auto">{t.contact.description}</p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
             {contactInfo.map((info) => (
               <Card key={info.label} className="border-2 text-center">
                 <CardHeader>

@@ -1,7 +1,7 @@
 "use client"
 
 import { Button } from "@/components/ui/button"
-import { Mail, MapPin, Phone, Linkedin, Github } from "lucide-react"
+import { Mail, MapPin, Phone, Linkedin, Github, Globe } from "lucide-react"
 import { useLanguage } from "@/lib/i18n"
 
 export function Hero() {
@@ -61,6 +61,15 @@ export function Hero() {
                 <MapPin className="h-3.5 w-3.5 sm:h-4 sm:w-4 flex-shrink-0" />
                 Cartagena, Colombia
               </div>
+              <a
+                href="https://genesispatino.dev"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 hover:text-primary transition-colors"
+              >
+                <Globe className="h-3.5 w-3.5 sm:h-4 sm:w-4 flex-shrink-0" />
+                genesispatino.dev
+              </a>
               <a
                 href="https://www.linkedin.com/in/genesis-pati%C3%B1o-urquijo-b68115272/"
                 target="_blank"
